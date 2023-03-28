@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import NavBar from "./components/NavBar";
+import Product from "./components/Product";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Category from "./components/Category";
+import ProductByCategory from "./components/ProductByCategory";
+import NewCategory from "./components/NewCategory";
+import NewProduct from "./components/NewProduct";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+          <NavBar />
+          <Routes>
+            <Route exact path="/" element={<Product />} />
+            <Route exact path="/product" element={<Product />} />
+            <Route exact path="/category" element={<Category />} />
+            <Route exact path="/product-by-category" element={<ProductByCategory />} />
+            <Route exact path="/new-category" element={<NewCategory />} />
+            <Route exact path="/new-product" element={<NewProduct />} />
+          </Routes>
+        </Router>
+    </>
   );
 }
 
